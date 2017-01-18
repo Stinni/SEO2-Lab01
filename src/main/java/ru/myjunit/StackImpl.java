@@ -18,7 +18,7 @@ public class StackImpl implements Stack {
      * @see Stack#isEmpty()
      */
     public boolean isEmpty() {
-        return size < 0;
+        return size <= 0;
     }
 
     /**
@@ -36,7 +36,7 @@ public class StackImpl implements Stack {
     public void push(Object item) {
         if (size >= list.length) {
             Object b[] = new Object[size + 5];
-            System.arraycopy(b, 0, list, 0, size);    
+            System.arraycopy(list, 0, b, 0, size);
             list = b;
         }            
         list[size++] = item;
@@ -46,7 +46,7 @@ public class StackImpl implements Stack {
      * @see Stack#pop()
      */
     public Object pop() {
-        return (size <= 0) ? null : list[size--];
+        return (size <= 0) ? null : list[--size];
     }
 
     /**
